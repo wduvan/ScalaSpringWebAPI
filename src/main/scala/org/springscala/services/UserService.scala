@@ -29,4 +29,9 @@ class UserService(@Autowired private val userRepository: UserRepository) {
     users.id
   }
 
+  @PreAuthorize("hasRole('admin')")
+  def findUserByUsernameAndPassword(users: Users): Users = {
+    userRepository.findUserByUsernameAndPassword(users.username, users.password)
+  }
+
 }

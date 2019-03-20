@@ -30,6 +30,11 @@ class UserController(@Autowired private val userService: UserService, @Autowired
     userService.getUser(id)
   }
 
+  @PostMapping(path = Array("/users/authenticate"))
+  def findUserByUsernameAndPassword(@RequestBody users: Users): Users = {
+    userService.findUserByUsernameAndPassword(users)
+  }
+
   @PostMapping(path = Array("/users"))
   def createUser(@RequestBody users: Users): ResponseEntity[Long] = {
     val id = userService.createUser(users)

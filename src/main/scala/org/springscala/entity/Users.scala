@@ -15,7 +15,7 @@ import javax.persistence.Column
 class Users extends Serializable {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @BeanProperty
   var id: Long = _
 
